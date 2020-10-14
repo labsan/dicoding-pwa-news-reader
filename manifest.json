@@ -1,0 +1,23 @@
+{
+	"name": "PWA News Reader",
+	"short_name": "News Reader",
+	"description": "PWA News Reader v2",
+	"start_url": "/index.html",
+	"display": "standalone",
+	"background_color": "#A7ABB7",
+	"theme_color": "#F6F7F8",
+	"icons": [
+		{
+			"src": "/images/maskable_icon_192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/images/favicon-original.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	]
+}

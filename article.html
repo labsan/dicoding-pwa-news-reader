@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>News Reader | Second PWA Training</title>
+		<meta name="description" content="My Second PWA" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#42A5F5" />
+
+		<!-- CONNECT CSS -->
+		<link rel="stylesheet" href="css/materialize.min.css" />
+
+		<!-- CONNECT MANIFEST -->
+		<link rel="manifest" href="/manifest.json" />
+
+		<!-- CONNECT FONT -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	</head>
+	<body>
+		<!-- START NAVIGATION -->
+		<nav class="blue lighten-1" role="navigation">
+			<div class="nav-wrapper container">
+				<a href="./index.html" class="brand-logo" id="logo-container">News Reader</a>
+				<a href="./index.html" class="sidenav-trigger" data-target="nav-mobile">
+					<i class="material-icons">arrow_back</i>
+				</a>
+				<ul class="topnav right hide-on-med-and-down"></ul>
+				<ul class="sidenav" id="nav-mobile"></ul>
+			</div>
+		</nav>
+		<!-- END NAVIGATION -->
+
+		<!-- CONTENT SECTION -->
+		<div class="container" id="body-content"></div>
+
+		<!-- CONNECT JAVASCRIPT -->
+		<script type="text/javascript" src="https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js"></script>
+		<script src="js/materialize.min.js"></script>
+		<script src="js/api.js"></script>
+
+		<script>
+			// REGISTER SERVICE WORKER
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', function () {
+					navigator.serviceWorker
+						.register('/service-worker.js')
+						.then(function () {
+							console.log('Pendaftaran ServiceWorker berhasil');
+						})
+						.catch(function () {
+							console.log('Pendaftaran ServiceWorker gagal');
+						});
+				});
+			} else {
+				console.log('ServiceWorker belum didukung browser ini.');
+			}
+
+			// REQUEST ARTICLE BY ID
+			document.addEventListener('DOMContentLoaded', function () {
+				getArticleById();
+			});
+		</script>
+	</body>
+</html>
