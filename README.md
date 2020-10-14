@@ -1,1 +1,1 @@
-# pwa-news-reader
+# dicoding-pwa-news-reader
